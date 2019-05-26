@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --mode development --hot",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "lint": "tslint --project .",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@hot-loader/react-dom": "^16.8.6",
