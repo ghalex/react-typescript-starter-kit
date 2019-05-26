@@ -8,7 +8,7 @@ type PageProps = PrivateRouteProps & {};
 const PublicPage = ({ user }: PageProps) => {
   return (
     <SimpleTemplate>
-      <Typography variant="h5">Private page:</Typography> {user.email}
+      <Typography variant="h1">Private page:</Typography> {user.email}
     </SimpleTemplate>
   );
 };

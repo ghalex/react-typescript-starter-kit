@@ -2,7 +2,7 @@ import * as React from "react";
 import { SimpleTemplate } from "templates";
 import { RouteComponentProps, Link } from "@reach/router";
 import { Button, Typography } from "@material-ui/core";
-import { Example } from "components";
+import { Logo } from "components";
 import auth from "ducks/auth";
 
 type PageProps = RouteComponentProps & {};
@@ -12,10 +12,15 @@ const PublicPage = (props: PageProps) => {
 
   return (
     <SimpleTemplate>
-      <Typography variant="h5" gutterBottom={true}>
-        Public page here.
+      <Typography variant="h1">H1 Title here</Typography>
+      <Typography variant="h2">Some subtitle using H2 font</Typography>
+      <Typography variant="h3" color="textPrimary">
+        The quick brown fox jumps over the lazy
       </Typography>
-      <Example />
+      <Typography variant="body1" color="textSecondary" gutterBottom={true}>
+        The quick brown fox jumps over the lazy
+      </Typography>
+      <Logo />
       <Button variant="contained" color="primary" onClick={login}>
         Click to Login
       </Button>

@@ -2,6 +2,7 @@ import { createMuiTheme, Theme as CoreTheme } from "@material-ui/core/styles";
 
 import palette from "./palette";
 import overrides from "./overrides";
+import typography from "./typography";
 
 export interface Theme extends CoreTheme {
   custom?: string;
@@ -9,7 +10,8 @@ export interface Theme extends CoreTheme {
 
 const theme: Theme = createMuiTheme({
   palette,
-  overrides
+  overrides,
+  typography
 });
 
 theme.custom = "works!";

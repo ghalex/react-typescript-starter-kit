@@ -1,1 +1,1 @@
-export { default as Example } from "./atoms/Example";
+export { default as Logo } from "./atoms/Logo";
