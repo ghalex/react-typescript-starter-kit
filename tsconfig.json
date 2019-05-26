@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "outDir": "build",
+    "jsx": "react",
+    "rootDir": ".",
+    "paths": {
+      "param.macro": ["types/param.macro"]
+    },
+    "baseUrl": "src",
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "noEmit": true,
+    "strict": true,
+    "isolatedModules": true,
+    "allowJs": true,
+    "resolveJsonModule": false,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["./src/*"],
+  "exclude": ["node_modules", "build", "webpack"]
+}
