@@ -1,4 +1,4 @@
-import { RouteComponentProps } from "@reach/router";
+import { RouteComponentProps } from "react-router-dom";
 import User from "models/User";
 
 export type Nullable<T> = T | null;

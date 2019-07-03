@@ -1,23 +1,24 @@
 import * as React from "react";
 import { hot } from "react-hot-loader/root";
 import { CssBaseline } from "@material-ui/core";
-import { Router, LocationProvider } from "@reach/router";
+import { BrowserRouter as Router } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/styles";
-import { RoutePrivate, RoutePublic } from "containers";
-
-import theme from "./theme";
+import { RoutePrivate, RoutePublic } from "components";
+import { useStore } from "effector-react";
 import * as pages from "./pages";
+import auth from "ducks/auth";
+import theme from "./theme";
 
 const App = (props: {}) => {
+  const user = useStore(auth.$user);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <LocationProvider>
-        <Router>
-          <RoutePublic path="/" component={pages.Public} />
-          <RoutePrivate path="/private" component={pages.Private} />
-        </Router>
-      </LocationProvider>
+      <Router>
+        <RoutePublic path="/login" component={pages.Public} />
+        <RoutePrivate path="/private" exact={true} component={pages.Private} user={user} />
+      </Router>
     </ThemeProvider>
   );
 };

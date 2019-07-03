@@ -1,14 +1,16 @@
 import * as React from "react";
 import { SimpleTemplate } from "templates";
-import { RouteComponentProps, Link } from "@reach/router";
 import { Button, Typography } from "@material-ui/core";
 import { Logo } from "components";
 import auth from "ducks/auth";
+import { withRouter } from "react-router-dom";
 
-type PageProps = RouteComponentProps & {};
-
-const PublicPage = (props: PageProps) => {
-  const login = () => auth.login({ email: "ghalex@gmail.com", password: "123456" });
+const PublicPage = (props: any) => {
+  const login = () => {
+    return auth
+      .login({ email: "ghalex@gmail.com", password: "123456" })
+      .then(() => props.history.replace("/private"));
+  };
 
   return (
     <SimpleTemplate>
@@ -28,4 +30,4 @@ const PublicPage = (props: PageProps) => {
   );
 };
 
-export default PublicPage;
+export default withRouter(PublicPage);

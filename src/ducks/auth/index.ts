@@ -1,7 +1,6 @@
 import { createDomain } from "effector";
 import { User } from "models";
 import { LoginData } from "types";
-import { navigate } from "@reach/router";
 
 const domain = createDomain("auth");
 
@@ -10,8 +9,6 @@ const domain = createDomain("auth");
 const login = domain
   .effect<LoginData, User, any>("login")
   .use(data => Promise.resolve(new User({ id: 1, profile: { email: "ghalex@gmail.com" }})));
-
-login.done.watch(_ => navigate("/private"));
 
 // stores
 export const $user = domain.store<User | null>(null);

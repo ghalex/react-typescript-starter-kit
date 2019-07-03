@@ -1,11 +1,14 @@
 import * as React from "react";
 import { SimpleTemplate } from "templates";
-import { PrivateRouteProps } from "types";
 import { Typography } from "@material-ui/core";
+import { User } from "models";
 
-type PageProps = PrivateRouteProps & {};
+interface Props {
+  user: User;
+}
 
-const PublicPage = ({ user }: PageProps) => {
+const PrivatePage = ({ user }: Props) => {
+  console.log(user);
   return (
     <SimpleTemplate>
       <Typography variant="h1">Private page:</Typography> {user.email}
@@ -13,4 +16,4 @@ const PublicPage = ({ user }: PageProps) => {
   );
 };
 
-export default PublicPage;
+export default PrivatePage;
