@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
 
 interface Props {
   user: any;
@@ -8,18 +8,22 @@ interface Props {
 
 const RoutePrivate = ({ component: Component, user, ...rest }: Props) => {
   return (
-    <React.Fragment>
-      {user ? (
-        <Component {...rest} user={user} />
-      ) : (
-        <Redirect
-          to={{
-            pathname: "/login",
-            state: { from: rest.location }
-          }}
-        />
-      )}
-    </React.Fragment>
+    <Route
+      {...rest}
+      // tslint:disable-next-line: jsx-no-lambda
+      render={(props: any) =>
+        user ? (
+          <Component {...props} user={user} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: rest.location }
+            }}
+          />
+        )
+      }
+    />
   );
 };
 
